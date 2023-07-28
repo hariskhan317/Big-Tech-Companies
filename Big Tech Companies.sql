@@ -535,7 +535,7 @@ where ROW_INDEX > 1
 
 
 
---MAKING Join
+--MAKING Union
 select EMPLOYER,[JOB TITLE], [BASE SALARY], [SUBMIT DATE], [START DATE], [CASE STATUS], State, City
 from Big_Tech_Companies..Amazon$
 Union
