@@ -74,6 +74,11 @@ set EMPLOYER = replace(EMPLOYER,'AMAZON COPORATE LLC','AMAZON CORPORATE')
 FROM Big_Tech_Companies..Amazon$
 
 
+--filling Null with Amazon in Employer Column
+update Big_Tech_Companies..Amazon$
+set EMPLOYER = 'AMAZON'
+where EMPLOYER is null
+
 -- Fixing Eployer Column in AMAZON Table - FULFILLMENT SERVICES and FRESH
 update Big_Tech_Companies..Amazon$
 set EMPLOYER =
@@ -527,3 +532,34 @@ from Big_Tech_Companies..Whatsapp$)
 Delete
 from CTE_Whatsapp
 where ROW_INDEX > 1
+
+
+
+--MAKING Join
+select EMPLOYER,[JOB TITLE], [BASE SALARY], [SUBMIT DATE], [START DATE], [CASE STATUS], State, City
+from Big_Tech_Companies..Amazon$
+Union
+select *
+from Big_Tech_Companies..Apple$
+Union
+select *
+from Big_Tech_Companies..Facebook$
+Union
+select *
+from Big_Tech_Companies..Google$
+Union
+select *
+from Big_Tech_Companies..Linkedin$
+Union
+select *
+from Big_Tech_Companies..Microsoft$
+Union
+select *
+from Big_Tech_Companies..Netflix$
+Union
+select *
+from Big_Tech_Companies..Whatsapp$
+
+
+
+ 
